@@ -40,21 +40,21 @@ export default function QuestionForm({ open, handleClose }: Props) {
 	};
 	const schema = Yup.object().shape({
 		question: Yup.string()
-			.min(2, "¡Demasiado corto!")
+			.min(5, "¡Demasiado corto!")
 			.max(500, "¡Demasiado largo!")
 			.required("Required"),
-		urlImage: Yup.string().min(2, "¡Demasiado corto!").notRequired(),
+		urlImage: Yup.string().notRequired(),
 		option1: Yup.string()
-			.min(2, "¡Demasiado corto!")
+			.min(1, "¡Demasiado corto!")
 			.max(50, "¡Demasiado largo!"),
 		option2: Yup.string()
-			.min(2, "¡Demasiado corto!")
+			.min(1, "¡Demasiado corto!")
 			.max(50, "¡Demasiado largo!"),
 		option3: Yup.string()
-			.min(2, "¡Demasiado corto!")
+			.min(1, "¡Demasiado corto!")
 			.max(50, "¡Demasiado largo!"),
 		option4: Yup.string()
-			.min(2, "¡Demasiado corto!")
+			.min(1, "¡Demasiado corto!")
 			.max(50, "¡Demasiado largo!"),
 		correctAnswer: Yup.number()
 			.typeError(
