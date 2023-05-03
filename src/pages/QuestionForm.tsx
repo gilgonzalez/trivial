@@ -46,16 +46,16 @@ export default function QuestionForm({ open, handleClose }: Props) {
 		urlImage: Yup.string().notRequired(),
 		option1: Yup.string()
 			.min(1, "¡Demasiado corto!")
-			.max(50, "¡Demasiado largo!"),
+			.max(200, "¡Demasiado largo!"),
 		option2: Yup.string()
 			.min(1, "¡Demasiado corto!")
-			.max(50, "¡Demasiado largo!"),
+			.max(200, "¡Demasiado largo!"),
 		option3: Yup.string()
 			.min(1, "¡Demasiado corto!")
-			.max(50, "¡Demasiado largo!"),
+			.max(200, "¡Demasiado largo!"),
 		option4: Yup.string()
 			.min(1, "¡Demasiado corto!")
-			.max(50, "¡Demasiado largo!"),
+			.max(200, "¡Demasiado largo!"),
 		correctAnswer: Yup.number()
 			.typeError(
 				"La respuesta correcta se especifica con el número de la opción",
