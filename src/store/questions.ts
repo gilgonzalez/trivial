@@ -35,7 +35,7 @@ export const useQuestionStore = create<State>()(
 
 					//buscando el id de la pregunta
 					const questionIndex = newQuestions.findIndex(
-						(q) => q.id === questionId,
+						(q: Question) => q.id === questionId,
 					);
 					const questionInfo = newQuestions[questionIndex];
 					const isCorrectAnswer = questionInfo.correctAnswer === answerIndex;
