@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the name of Harry Potter's pet owl?",
+      "answers": [
+        "Hedwig",
+        "Crookshanks",
+        "Scabbers",
+        "Fawkes"
+      ],
+      "correctAnswer": "Hedwig"
+    },
+    {
+      "id": 2,
+      "question": "Who is the Defense Against the Dark Arts teacher in Harry Potter and the Philosopher's Stone?",
+      "answers": [
+        "Remus Lupin",
+        "Albus Dumbledore",
+        "Severus Snape",
+        "Quirinus Quirrell"
+      ],
+      "correctAnswer": "Quirinus Quirrell"
+    },
+    {
+      "id": 3,
+      "question": "What is the name of the Weasley twins?",
+      "answers": [
+        "Fred and George",
+        "Ron and Percy",
+        "Bill and Charlie",
+        "Arthur and Charlie"
+      ],
+      "correctAnswer": "Fred and George"
+    },
+    {
+      "id": 4,
+      "question": "Who is the Half-Blood Prince in Harry Potter and the Half-Blood Prince?",
+      "answers": [
+        "Harry Potter",
+        "Ron Weasley",
+        "Severus Snape",
+        "Tom Riddle"
+      ],
+      "correctAnswer": "Severus Snape"
+    },
+    {
+      "id": 5,
+      "question": "What is the name of the house elf who serves the Black family?",
+      "answers": [
+        "Dobby",
+        "Kreacher",
+        "Winky",
+        "Hokey"
+      ],
+      "correctAnswer": "Kreacher"
+    }
+  ]
+}
