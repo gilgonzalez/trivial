@@ -18,12 +18,7 @@ const ButtonStart = () => {
 	}));
 	const handleClick = () => loadQuestions(questions || ({} as Question[]));
 	return (
-		<Button
-			onClick={handleClick}
-			variant="contained"
-			color="primary"
-			size="small"
-		>
+		<Button onClick={handleClick} variant="contained" color="info" size="small">
 			A jugar!
 		</Button>
 	);

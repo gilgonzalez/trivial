@@ -1,13 +1,17 @@
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import { Button, Container, Stack, Typography } from "@mui/material";
+import { useState } from "react";
 import "./App.css";
 import AskGame from "./component/AskGame";
 import ButtonStart from "./component/ButtonStart";
 import EndGame from "./pages/EndGame";
+import QuestionForm from "./pages/QuestionForm";
 import { useQuestionStore } from "./store/questions";
 function App() {
 	const questions = useQuestionStore((state) => state.questions);
 	const unAnswered = useQuestionStore((state) => state.unAnswered);
+	const [openQuestionForm, setOpenQuestionForm] = useState<boolean>(false);
+	console.log(questions);
 
 	return (
 		<main>
@@ -37,6 +41,7 @@ function App() {
 					{questions.length === 0 && <ButtonStart />}
 					{questions.length === 0 && (
 						<Button
+							onClick={() => setOpenQuestionForm(true)}
 							sx={{ fontSize: "10px" }}
 							color="info"
 							startIcon={
@@ -51,6 +56,10 @@ function App() {
 					{questions.length > 0 && unAnswered > 0 && <AskGame />}
 				</Stack>
 				{questions.length > 0 && unAnswered === 0 && <EndGame />}
+				<QuestionForm
+					open={openQuestionForm}
+					handleClose={setOpenQuestionForm}
+				/>
 			</Container>
 		</main>
 	);
