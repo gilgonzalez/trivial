@@ -105,20 +105,19 @@ export default function QuestionForm({ open, handleClose }: Props) {
 					<form style={{ gap: "10px" }} onSubmit={handleSubmit(onSubmit)}>
 						<TextField
 							{...register("question")}
-							autoFocus
 							margin="dense"
 							id="name"
 							label="Aquí va la pregunta"
 							type="text"
 							fullWidth
 							variant="standard"
+							autoFocus
 						/>
 						{errors.question && (
 							<p className="error">{errors.question.message}</p>
 						)}
 						<TextField
 							{...register("urlImage")}
-							autoFocus
 							margin="dense"
 							id="name"
 							label="Añadir url de una imagen (Opcional)"
