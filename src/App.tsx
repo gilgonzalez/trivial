@@ -27,7 +27,7 @@ function App() {
 						width={"100%"}
 					>
 						<img
-							src="../src/assets/harry-potter.png"
+							src="https://examberrypapers.co.uk/wp-content/uploads/2021/11/harry-potter.svg"
 							alt="logo"
 							height={100}
 							width={100}
