@@ -12,7 +12,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { db } from "../firebase";
 import { Question } from "../store/types";
-import "./QuestionForm.css";
 
 interface Props {
 	open: boolean;
@@ -114,7 +113,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 							fullWidth
 							variant="standard"
 						/>
-						{errors.question && <p>{errors.question.message}</p>}
+						{errors.question && (
+							<p className="error">{errors.question.message}</p>
+						)}
 						<TextField
 							{...register("urlImage")}
 							autoFocus
@@ -133,7 +134,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 									size="small"
 									label="Opcion 1"
 								/>
-								{errors.option1 && <p>{errors.option1.message}</p>}
+								{errors.option1 && (
+									<p className="error">{errors.option1.message}</p>
+								)}
 							</Grid>
 							<Grid item xs={6}>
 								<TextField
@@ -141,7 +144,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 									size="small"
 									label="Opcion 2"
 								/>
-								{errors.option2 && <p>{errors.option2.message}</p>}
+								{errors.option2 && (
+									<p className="error">{errors.option2.message}</p>
+								)}
 							</Grid>
 							<Grid item xs={6}>
 								<TextField
@@ -149,7 +154,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 									size="small"
 									label="Opcion 3"
 								/>
-								{errors.option3 && <p>{errors.option3.message}</p>}
+								{errors.option3 && (
+									<p className="error">{errors.option3.message}</p>
+								)}
 							</Grid>
 							<Grid item xs={6}>
 								<TextField
@@ -157,7 +164,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 									size="small"
 									label="Opcion 4"
 								/>
-								{errors.option4 && <p>{errors.option4.message}</p>}
+								{errors.option4 && (
+									<p className="error">{errors.option4.message}</p>
+								)}
 							</Grid>
 						</Grid>
 						<Stack display={"flex"} alignItems={"center"} marginTop={"12px"}>
@@ -167,7 +176,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 								size="small"
 								label="Opción correcta"
 							/>
-							{errors.correctAnswer && <p>{errors.correctAnswer.message}</p>}
+							{errors.correctAnswer && (
+								<p className="error">{errors.correctAnswer.message}</p>
+							)}
 						</Stack>
 						<DialogActions>
 							<Button
