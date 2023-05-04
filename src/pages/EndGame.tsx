@@ -18,9 +18,11 @@ const EndGame = () => {
 	const incorrect = questions.length - correctQuestions;
 	const percentage = Math.round((correctQuestions / questions.length) * 100);
 	const { scoresData } = getScores();
-	const scoresSorted = scoresData?.sort((a, b) => {
-		return b.percentage - a.percentage;
-	});
+	const scoresSorted = scoresData
+		?.sort((a, b) => {
+			return b.percentage - a.percentage;
+		})
+		.slice(0, 10);
 	return (
 		<>
 			<Stack marginTop={"16px"} marginBottom={"16px"} gap={4}>
@@ -81,6 +83,7 @@ const EndGame = () => {
 				</Typography>
 				<Table>
 					<TableHead>
+						<th>Pos</th>
 						<th>Nombre de hechicero</th>
 						<th>Aciertos</th>
 						<th>Errores</th>
@@ -88,8 +91,9 @@ const EndGame = () => {
 					</TableHead>
 					<tbody>
 						{!!scoresSorted &&
-							scoresSorted?.map((score) => (
+							scoresSorted?.map((score, index) => (
 								<tr key={score.name}>
+									<td>{index + 1}</td>
 									<td>{score.name}</td>
 									<td>{score.correct}</td>
 									<td>{score.incorrect}</td>
