@@ -89,7 +89,7 @@ const EndGame = () => {
 					<tbody>
 						{!!scoresSorted &&
 							scoresSorted?.map((score) => (
-								<tr>
+								<tr key={score.name}>
 									<td>{score.name}</td>
 									<td>{score.correct}</td>
 									<td>{score.incorrect}</td>

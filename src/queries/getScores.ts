@@ -9,7 +9,7 @@ export const getScores = () => {
 		colRef,
 		{},
 		{
-			refetchOnMount: true,
+			refetchOnWindowFocus: true,
 			select: (data) => data.docs.map((doc) => doc.data()),
 		},
 	);
