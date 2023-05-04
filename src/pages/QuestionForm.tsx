@@ -97,10 +97,11 @@ export default function QuestionForm({ open, handleClose }: Props) {
 	return (
 		<div>
 			<Dialog open={open} onClose={handleClose}>
-				<DialogTitle>Crear Pregunta</DialogTitle>
+				<DialogTitle>¡Ayúdame a conseguir más preguntas!</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
-						Para crear una nueva pregunta, has de rellenar los siguientes campos
+						Si crees que falta alguna pregunta sobre el universo Harry Potter
+						que debería aparecer, no dudes en incluirla
 					</DialogContentText>
 					<form style={{ gap: "10px" }} onSubmit={handleSubmit(onSubmit)}>
 						<TextField

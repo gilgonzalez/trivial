@@ -10,7 +10,7 @@ const EndGame = () => {
 		return acc;
 	}, 0);
 	const errors = questions.length - correctQuestions;
-	const percentage = (correctQuestions / questions.length) * 100;
+	const percentage = Math.round((correctQuestions / questions.length) * 100);
 	return (
 		<>
 			<Stack marginTop={"16px"} marginBottom={"16px"} gap={4}>
