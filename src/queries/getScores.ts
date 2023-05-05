@@ -7,9 +7,9 @@ export const getScores = () => {
 	const { data: scoresData } = useFirestoreQuery(
 		["scores"],
 		colRef,
-		{},
+		{ subscribe: true },
 		{
-			refetchOnWindowFocus: true,
+			refetchOnMount: true,
 			select: (data) => data.docs.map((doc) => doc.data()),
 		},
 	);

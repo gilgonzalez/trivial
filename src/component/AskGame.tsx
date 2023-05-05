@@ -13,9 +13,7 @@ const AskGame = () => {
 
 	const goNextQuestion = useQuestionStore((state) => state.goNextQuestion);
 	const goPreviousQuestion = useQuestionStore((state) => state.goPrevQuestion);
-	console.log({ currentQuestion });
-	console.log({ size: questions.length });
-
+	const clickedNext = useQuestionStore((state) => state.clickNext);
 	return (
 		<>
 			<AskElement info={questionInfo} />
@@ -36,8 +34,10 @@ const AskGame = () => {
 					{currentQuestion + 1} / {questions.length}
 				</Typography>
 				<IconButton
-					onClick={goNextQuestion}
-					disabled={currentQuestion >= questions.length - 1}
+					onClick={() => {
+						goNextQuestion();
+					}}
+					disabled={currentQuestion >= questions.length - 1 || clickedNext}
 					sx={{ opacity: currentQuestion >= questions.length - 1 ? 0.5 : 1 }}
 				>
 					<ArrowForwardIcon sx={{ color: "white" }} />

@@ -12,7 +12,6 @@ function App() {
 	const questions = useQuestionStore((state) => state.questions);
 	const unAnswered = useQuestionStore((state) => state.unAnswered);
 	const [openQuestionForm, setOpenQuestionForm] = useState<boolean>(false);
-	console.log(questions);
 
 	return (
 		<main>

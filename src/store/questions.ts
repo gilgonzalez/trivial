@@ -8,11 +8,13 @@ interface State {
 	currentQuestion: number;
 	unAnswered: number;
 	completed: boolean;
+	clickNext: boolean;
 	loadQuestions: (questions: Question[]) => void;
 	selectAnswer: (questionId: string, answerIndex: number) => void;
 	goNextQuestion: () => void;
 	goPrevQuestion: () => void;
 	setCompleted: () => void;
+	setClickNext: (clicked: boolean) => void;
 	resetGame: () => void;
 }
 const count = 200;
@@ -36,6 +38,7 @@ export const useQuestionStore = create<State>()(
 				currentQuestion: 0,
 				unAnswered: 0,
 				completed: false,
+				clickNext: false,
 
 				loadQuestions: (questions: Question[]) => {
 					const unSortedQuestions = questions
@@ -46,6 +49,10 @@ export const useQuestionStore = create<State>()(
 				setCompleted: () => {
 					set({ completed: true });
 				},
+				setClickNext: (clicked: boolean) => {
+					set({ clickNext: clicked });
+				},
+
 				selectAnswer(questionId: string, answerIndex: number) {
 					const { questions } = get();
 					//usando structuredClone

@@ -24,9 +24,16 @@ const getBackGroundColor = (info: Question, index: number) => {
 
 const AskElement = ({ info }: { info: Question }) => {
 	const selectAnswer = useQuestionStore((state) => state.selectAnswer);
+	const goNextQuestion = useQuestionStore((state) => state.goNextQuestion);
+	const setClickNext = useQuestionStore((state) => state.setClickNext);
 
 	const createHandleClick = (answerIndex: number) => () => {
 		selectAnswer(info.id, answerIndex);
+		setClickNext(true);
+		setTimeout(() => {
+			goNextQuestion();
+			setClickNext(false);
+		}, 1000);
 	};
 
 	return (
