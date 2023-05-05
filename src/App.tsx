@@ -8,10 +8,12 @@ import ButtonStart from "./component/ButtonStart";
 import EndGame from "./pages/EndGame";
 import QuestionForm from "./pages/QuestionForm";
 import { useQuestionStore } from "./store/questions";
+export const LIMIT_QUESTIONS = 10;
 function App() {
 	const questions = useQuestionStore((state) => state.questions);
 	const unAnswered = useQuestionStore((state) => state.unAnswered);
 	const [openQuestionForm, setOpenQuestionForm] = useState<boolean>(false);
+	console.log({ unAnswered });
 
 	return (
 		<main>

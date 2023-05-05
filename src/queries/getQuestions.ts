@@ -1,9 +1,9 @@
 import { useFirestoreQuery } from "@react-query-firebase/firestore";
-import { collection, limit, query } from "firebase/firestore";
+import { collection, query } from "firebase/firestore";
 import { db } from "../firebase";
 
-export const getQuestions = (limitQuestion: number) => {
-	const colRef = query(collection(db, "questions"), limit(limitQuestion));
+export const getQuestions = () => {
+	const colRef = query(collection(db, "questions"));
 	const { data } = useFirestoreQuery(
 		["questions"],
 		colRef,

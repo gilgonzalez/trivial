@@ -4,11 +4,9 @@ import { getQuestions } from "../queries/getQuestions";
 import { useQuestionStore } from "../store/questions";
 import { Question } from "../store/types";
 
-const LIMIT_QUESTIONS = 10;
-
 const ButtonStart = () => {
 	const loadQuestions = useQuestionStore((state) => state.loadQuestions);
-	const { data } = getQuestions(LIMIT_QUESTIONS);
+	const { data } = getQuestions();
 	const questions = data?.map((question: DocumentData) => ({
 		id: question.id,
 		question: question.question,

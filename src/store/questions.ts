@@ -1,6 +1,7 @@
 import confetti from "canvas-confetti";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { LIMIT_QUESTIONS } from "../App";
 import { type Question } from "../store/types";
 
 interface State {
@@ -43,8 +44,11 @@ export const useQuestionStore = create<State>()(
 				loadQuestions: (questions: Question[]) => {
 					const unSortedQuestions = questions
 						.sort(() => Math.random() - 0.5)
-						.slice(0, 10);
-					set({ questions: unSortedQuestions, unAnswered: questions.length });
+						.slice(0, LIMIT_QUESTIONS);
+					set({
+						questions: unSortedQuestions,
+						unAnswered: unSortedQuestions.length,
+					});
 				},
 				setCompleted: () => {
 					set({ completed: true });
@@ -115,7 +119,12 @@ export const useQuestionStore = create<State>()(
 					}
 				},
 				resetGame: () => {
-					set({ currentQuestion: 0, questions: [], completed: false });
+					set({
+						currentQuestion: 0,
+						questions: [],
+						completed: false,
+						unAnswered: 0,
+					});
 				},
 			};
 		},
