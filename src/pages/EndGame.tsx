@@ -1,6 +1,17 @@
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import SaveIcon from "@mui/icons-material/Save";
-import { Button, Stack, Table, TableHead, Typography } from "@mui/material";
+import {
+	Button,
+	Paper,
+	Stack,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+	Typography,
+} from "@mui/material";
 import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
@@ -129,6 +140,7 @@ const EndGame = () => {
 					alignItems={"center"}
 				>
 					<Button
+						size="small"
 						onClick={resetGame}
 						variant="contained"
 						color="success"
@@ -137,6 +149,7 @@ const EndGame = () => {
 						Reiniciar juego
 					</Button>
 					<Button
+						size="small"
 						onClick={() => setOpenModalSaveScore(true)}
 						variant="contained"
 						sx={{
@@ -156,27 +169,34 @@ const EndGame = () => {
 				<Typography component={"h4"} variant={"h5"}>
 					RESULTADOS DE OTROS FANS
 				</Typography>
-				<Table>
-					<TableHead>
-						<th>Pos</th>
-						<th>Nombre de hechicero</th>
-						<th>Aciertos</th>
-						<th>Errores</th>
-						<th>% de acierto</th>
-					</TableHead>
-					<tbody>
-						{!!scoresSorted &&
-							scoresSorted?.map((score, index) => (
-								<tr key={score.name}>
-									<td>{index + 1}</td>
-									<td>{score.name}</td>
-									<td>{score.correct}</td>
-									<td>{score.incorrect}</td>
-									<td>{score.percentage} %</td>
-								</tr>
-							))}
-					</tbody>
-				</Table>
+				<TableContainer component={Paper}>
+					<Table aria-label="simple table">
+						<TableHead>
+							<TableRow>
+								<TableCell>Pos</TableCell>
+								<TableCell align="left">Nombre Hechicero</TableCell>
+								<TableCell align="right">Aciertos</TableCell>
+								<TableCell align="right">Errores</TableCell>
+								<TableCell align="right">% aciertos</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{!!scoresSorted &&
+								scoresSorted?.map((score, index) => (
+									<TableRow
+										key={score.name}
+										sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+									>
+										<TableCell component="th">{index + 1}</TableCell>
+										<TableCell align="left">{score.name}</TableCell>
+										<TableCell align="right">{score.correct}</TableCell>
+										<TableCell align="right">{score.incorrect}</TableCell>
+										<TableCell align="right">{score.percentage}</TableCell>
+									</TableRow>
+								))}
+						</TableBody>
+					</Table>
+				</TableContainer>
 			</Stack>
 		</>
 	);
