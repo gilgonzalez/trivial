@@ -91,7 +91,6 @@ const EndGame = () => {
 		}
 	}, []);
 
-	console.log(completed);
 	return (
 		<>
 			<Stack marginTop={"16px"} marginBottom={"16px"} gap={4}>
@@ -140,13 +139,18 @@ const EndGame = () => {
 					<Button
 						onClick={() => setOpenModalSaveScore(true)}
 						variant="contained"
-						color="success"
+						sx={{
+							"&.Mui-disabled": {
+								background: "#333",
+								color: "#ddd",
+							},
+						}}
 						startIcon={
-							<SaveIcon sx={{ color: `${completed ? "gray" : "#DDDDDD"}` }} />
+							<SaveIcon sx={{ color: `${completed ? "gray" : "white"}` }} />
 						}
 						disabled={completed}
 					>
-						Guardar mi puntuación
+						{completed ? "Puntuación guardada" : "Guardar puntuación"}
 					</Button>
 				</Stack>
 				<Typography component={"h4"} variant={"h5"}>
