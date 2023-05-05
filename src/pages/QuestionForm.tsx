@@ -9,6 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import { addDoc, collection } from "firebase/firestore";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import * as Yup from "yup";
 import { db } from "../firebase";
 import { Question } from "../store/types";
@@ -91,7 +92,9 @@ export default function QuestionForm({ open, handleClose }: Props) {
 		handleNewQuestion(newQuestion as Question);
 		acceptClick();
 		reset();
-		console.log(data);
+		toast.success("Pregunta registrada, muchas gracias!", {
+			icon: "👏",
+		});
 	};
 
 	return (

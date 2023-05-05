@@ -1,6 +1,7 @@
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import "./App.css";
 import AskGame from "./component/AskGame";
 import ButtonStart from "./component/ButtonStart";
@@ -16,6 +17,7 @@ function App() {
 	return (
 		<main>
 			<Container maxWidth={"sm"}>
+				<Toaster />
 				<Stack gap={2} alignItems={"center"}>
 					<Stack
 						direction={"row"}

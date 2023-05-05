@@ -8,17 +8,17 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import { doc, setDoc } from "firebase/firestore";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Toaster, toast } from "react-hot-toast";
 import * as Yup from "yup";
 import { db } from "../firebase";
+import { useQuestionStore } from "../store/questions";
 
 interface Props {
 	open: boolean;
 	handleClose: React.Dispatch<React.SetStateAction<boolean>>;
-	setSaved: React.Dispatch<React.SetStateAction<boolean>>;
 	correct: number;
 	incorrect: number;
 	percentage: number;
-	saved: boolean;
 }
 interface IFormInput {
 	name: string;
@@ -30,8 +30,6 @@ export default function SaveScoreModal({
 	correct,
 	incorrect,
 	percentage,
-	saved,
-	setSaved,
 }: Props) {
 	const cancelClick = () => {
 		handleClose(false);
@@ -39,6 +37,7 @@ export default function SaveScoreModal({
 	const acceptClick = () => {
 		handleClose(false);
 	};
+	const setCompleted = useQuestionStore((state) => state.setCompleted);
 	const handleNewQuestion = async (id: string) => {
 		const docRef = doc(db, "scores", id);
 		const payload = { name: id, correct, incorrect, percentage };
@@ -60,19 +59,19 @@ export default function SaveScoreModal({
 	});
 	const onSubmit: SubmitHandler<IFormInput> = (data) => {
 		const { name } = data;
-		if (saved) {
-			alert("Ya has guardado tu puntuación, no seas tramposo");
-			return null;
-		}
 		handleNewQuestion(name);
 		acceptClick();
 		reset();
-		setSaved(true);
+		setCompleted();
+		toast.success("Puntuación guardada con éxito", {
+			duration: 3000,
+			icon: "😎",
+		});
 	};
-
 	return (
 		<div>
 			<Dialog open={open} onClose={handleClose}>
+				<Toaster />
 				<DialogTitle>¡Registra tu nombre en el ranking!</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
